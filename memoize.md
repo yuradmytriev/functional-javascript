@@ -21,3 +21,16 @@ console.log(doubleMemo(5));
 // 10
 // 10
 ```
+
+Memoization with Map:
+
+```js
+const memoize = fn => {
+  const cache = new Map();
+  const cached = function(val) {
+    return cache.has(val) ? cache.get(val) : cache.set(val, fn.call(this, val)) && cache.get(val);
+  };
+  cached.cache = cache;
+  return cached;
+};
+```
