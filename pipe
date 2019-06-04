@@ -1,0 +1,15 @@
+```js
+const isEmailHasError = ({
+  message: {
+    errors
+  }
+}) => (!isNil(errors) || Array.isArray(errors)) && errors;
+
+
+const getEmailErrorMessage = error => ({
+  message: (error.shift()).title
+});
+
+
+return pipe(isEmailHasError, getEmailErrorMessage)(emailError);
+```
