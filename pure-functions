@@ -1,0 +1,17 @@
+### Pure Functions 
+
+A pure function is a function where the return value is only determined by its input values, without observable side effects (doesn’t change outside state).
+
+To write a test, you declare the values that will act as arguments, pass them to the function, and verify the output. There is no context to set up, no current account, request, or user. There are no side effects to mock or stub. Instantiate a representative set of inputs, and validate the outputs. Testing doesn’t get more straightforward than this.
+
+#### Memoization 
+
+Because pure functions are referentially transparent, we only need to compute their output once for given inputs. Caching and reusing the result of a computation is called memoization, and can only be done safely with pure functions.
+
+Same Input => Same Output:
+
+```js
+const sum = (x, y) => x + y;
+
+add(2, 4); // 6
+```
